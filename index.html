@@ -63,9 +63,11 @@ var options = {
 
 //Tabitha says hello
 responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
+alert('1');
 
 //Make Character selection
 function filterSingleValue() {
+	alert('2');
 	activeSheet.applyFilterAsync(
     	"Region",
     	"Europe",
