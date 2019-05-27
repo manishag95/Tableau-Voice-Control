@@ -29,6 +29,11 @@ if (annyang) {
   var commands = {
   	//'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
 	'Select Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select The Americas': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); }
  };
   
@@ -70,7 +75,7 @@ function filterSingleValue(region) {
 	alert(region);
 	activeSheet.applyFilterAsync(
     	"Region",
-    	"Europe",
+    	region,
     	tableau.FilterUpdateType.REPLACE);
 } 
 //	function selectVader()
