@@ -27,10 +27,8 @@ Say: <i>"Select Darth Vader" and "start over"</i>
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
-  	'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
- 	'Select Han Solo': function() { selectSolo(); responsiveVoice.speak('selecting Han Solo'); },
- 	'Select Yoda': function() { selectYoda(); responsiveVoice.speak('selecting Yoda', "UK English Female"); },
- 	'Select Luke Skywalker': function() { selectLuke(); responsiveVoice.speak('selecting Luke Skywalker'); },
+  	//'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
+	'Select Europe': function() { filterSingleValue(); responsiveVoice.speak('selecting Europe', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); }
  };
   
@@ -48,8 +46,8 @@ function initializeViz(){
 
 var placeholderDiv = document.getElementById("tableauViz");
 
-//var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
-var url = "https://public.tableau.com/views/Starwars/StarWords";
+var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
+//var url = "https://public.tableau.com/views/Starwars/StarWords";
 var options = {
    width: "1004",   
    height: "869",
@@ -67,25 +65,16 @@ var options = {
 responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
 
 //Make Character selection
-function selectVader()
-	{
-	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'DARTH VADER', 'REPLACE'); 
-	}
-
-function selectYoda()
-	{
-	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'YODA', 'REPLACE'); 
-	}
-
-function selectSolo()
-	{
-	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'HAN SOLO', 'REPLACE'); 
-	}	
-
-function selectLuke()
-	{
-	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'LUKE SKYWALKER', 'REPLACE'); 
-	}	
+function filterSingleValue() {
+	activeSheet.applyFilterAsync(
+    	"Region",
+    	"Europe",
+    	tableau.FilterUpdateType.REPLACE);
+} 
+//	function selectVader()
+//	{
+//	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'DARTH VADER', 'REPLACE'); 
+//	}
 	
 //Start Viz Over
 function startover()
