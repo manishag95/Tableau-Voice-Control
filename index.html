@@ -28,7 +28,7 @@ if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
   	//'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
-	'Select Europe': function() { filterSingleValue(); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); }
  };
   
@@ -63,11 +63,11 @@ var options = {
 
 //Tabitha says hello
 responsiveVoice.speak('Hi. Welcome to Tabitha. How may I help you?');
-alert('1');
+//alert('1');
 
 //Make Character selection
-function filterSingleValue() {
-	alert('2');
+function filterSingleValue(region) {
+	alert(region);
 	activeSheet.applyFilterAsync(
     	"Region",
     	"Europe",
