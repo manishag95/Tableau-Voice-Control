@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-Speech Recognition Demo
+Speech Recognition1 Demo
 Say: <i>"Select Europe" and "start over"</i>
 <br>
 <br>
@@ -47,6 +47,10 @@ if (annyang) {
 
 <script>
 var viz, workbook, activeSheet, Worksheet, worksheet;
+//Tabitha says hello
+responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
+//alert('1');
+	
 function initializeViz(){
 
 var placeholderDiv = document.getElementById("tableauViz");
@@ -65,10 +69,6 @@ var options = {
 };
   viz = new tableauSoftware.Viz(placeholderDiv, url, options);
 }
-
-//Tabitha says hello
-responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
-//alert('1');
 
 //Make Character selection
 function filterSingleValue(region) {
