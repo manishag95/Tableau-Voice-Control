@@ -26,19 +26,6 @@ Say : <br>
 <center><div id='tableauViz'></div></center>
 
 <script>
-if ($window.localStorage.getItem('adminconsole') == null) {
-        $window.localStorage.setItem('adminconsole', 'adminconsole');
-        $window.open('index.html', 'adminconsole');
-    }
-    else {
-        try {
-		alert('focus');
-            window.open('', 'adminconsole').focus();
-        }
-        catch (error) {
-            alert(error);
-        }
-    }	
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
