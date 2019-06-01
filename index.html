@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-<h1>"Speech Recognition1 Demo"</h1>
+// <h1>"Speech Recognition1 Demo"</h1>
 Say: <i>"Select Europe" and "start over"</i>
 <br>
 <br>
@@ -33,7 +33,7 @@ if (annyang) {
 	'Select Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Asia', "UK English Male"); },
 	'Select Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
 	'Select Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
-	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
+	'Select Africa': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); }
  };
   
