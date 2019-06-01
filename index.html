@@ -17,15 +17,26 @@
 </head>	
 
 <body onload=initializeViz();>
-<h1>Speech Recognition1 Demo</h1>
-Say (list of commands): <br>
-	<i>"Select <Continent>"  <br>
+<h1>Speech Recognition Demo</h1>
+Say : <br>
+	<i>"Select Europe"  <br>
 	"start over"</i>
 <br>
 <br>
 <center><div id='tableauViz'></div></center>
 
 <script>
+	 function focusMe() {
+    	alert('focusing');
+        window.focus();
+    }
+
+	(function () {
+	    setTimeout(function() {
+	    	focusMe();
+	    }, 5000);
+	})();
+	
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
