@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-<h1>Speech Recognition Demo</h1>
+<h1>Speech Recognition1 Demo</h1>
 Say : <br>
 	<i>"Select Europe"  <br>
 	"start over"</i>
@@ -26,6 +26,7 @@ Say : <br>
 <center><div id='tableauViz'></div></center>
 
 <script>
+document.viz.focus();	
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
