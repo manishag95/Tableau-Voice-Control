@@ -18,7 +18,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h1>Speech Recognition Demo</h1>
+<h1>Speech Recognition1 Demo</h1>
 	
 	
 <p>
@@ -32,9 +32,6 @@
 <center><div id='tableauViz'></div></center>
 
 <script>
-	document.getElementById("myBtn").addEventListener("click", function() {
-  responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
-});
 
 if (annyang) {
   // These are the voice commands in quotes followed by the function
@@ -48,12 +45,17 @@ if (annyang) {
 	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); }
  };
-  
+
+	document.getElementById("myBtn").addEventListener("click", function() {
+  responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
   // Add commands to annyang
   annyang.addCommands(commands);
   
   // Start listening.
   annyang.start();
+	
+});
+
 }
 
 var viz, workbook, activeSheet, Worksheet, worksheet;
