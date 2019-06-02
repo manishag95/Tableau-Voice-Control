@@ -53,7 +53,7 @@ if (annyang) {
   // Start listening.
   annyang.start();
 	
-filterYearValue("2009");
+filterYearValue('2009');
 		
 });
 
@@ -93,10 +93,10 @@ function filterSingleValue(region) {
 } 
 //Make Year selection
 function filterYearValue(year) {
-	alert('year='+'"'+year+'"');
+	alert('year='+year);
 	activeSheet.applyFilterAsync(
     	"YEAR(Date (year))",
-    	'"'+year+'"',
+    	num.toString(2009),
     	tableau.FilterUpdateType.REPLACE);
 } 
 
