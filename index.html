@@ -18,7 +18,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h1>Speech Recognition Demo</h1>
+<h1>Speech Recognition1 Demo</h1>
 	
 	
 <p>
@@ -53,7 +53,7 @@ if (annyang) {
   // Start listening.
   annyang.start();
 	
-filterYearValue(2009);
+filterYearValue("2009");
 		
 });
 
@@ -96,7 +96,7 @@ function filterYearValue(year) {
 	alert('year='+year);
 	activeSheet.applyFilterAsync(
     	"YEAR(Date (year))",
-    	"2009",
+    	year,
     	tableau.FilterUpdateType.REPLACE);
 } 
 
