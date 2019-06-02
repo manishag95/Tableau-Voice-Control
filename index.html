@@ -28,12 +28,13 @@
 	
 <br>
 <br>
-<button type="button">Enable voice!</button>
+<button type="button"; id="myBtn">Enable voice!</button>
 <center><div id='tableauViz'></div></center>
 if (document.hasFocus()) 'Tab is active'
 <script>
-window.document.write("<p>A new window!</p>");
-  window.focus();
+	document.getElementById("myBtn").addEventListener("click", function() {
+  alert("Hello World!");
+});
 
 if (annyang) {
   // These are the voice commands in quotes followed by the function
