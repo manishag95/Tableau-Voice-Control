@@ -18,7 +18,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h1>Speech Recognition1 Demo </h1>
+<h1>Speech Recognitiona Demo </h1>
 	
 	
 <p>
@@ -43,7 +43,7 @@ if (annyang) {
 	'Select Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
 	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
-	  'Select year *tag' : filterYearValue;  responsiveVoice.speak('selecting year', "UK English Male");
+	  'Select year *tag' : filterYearValue;  
  };
 
 	document.getElementById("myBtn").addEventListener("click", function() {
@@ -94,11 +94,13 @@ function filterSingleValue(region) {
 } 
 //Make Year selection
 function filterYearValue(v_year) {
-	alert('year='+v_year);
+	//alert('year='+v_year);
 	activeSheet.applyFilterAsync(
     	"YEAR(Date (year))",
     	v_year,
     	tableau.FilterUpdateType.REPLACE);
+	responsiveVoice.speak('selecting year', "UK English Male");
+	responsiveVoice.speak(v_year, "UK English Male");
 } 
 
 //	function selectVader()
