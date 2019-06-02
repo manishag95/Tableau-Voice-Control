@@ -18,7 +18,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h1>Speech Recognition1 Demo</h1>
+<h1>Speech Recognition Demo</h1>
 	
 	
 <p>
@@ -93,10 +93,10 @@ function filterSingleValue(region) {
 } 
 //Make Year selection
 function filterYearValue(year) {
-	alert('year='+year);
+	alert('year='+'"'+year+'"');
 	activeSheet.applyFilterAsync(
     	"YEAR(Date (year))",
-    	year,
+    	'"'+year+'"',
     	tableau.FilterUpdateType.REPLACE);
 } 
 
