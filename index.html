@@ -32,7 +32,6 @@
 <center><div id='tableauViz'></div></center>
 
 <script>
-
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
@@ -90,6 +89,16 @@ function filterSingleValue(region) {
     	region,
     	tableau.FilterUpdateType.REPLACE);
 } 
+//Make Year selection
+function filterYearValue(year) {
+	//alert(region);
+	activeSheet.applyFilterAsync(
+    	"Year",
+    	year,
+    	tableau.FilterUpdateType.REPLACE);
+} 
+filterYearValue('2009');
+
 //	function selectVader()
 //	{
 //	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'DARTH VADER', 'REPLACE'); 
