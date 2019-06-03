@@ -21,12 +21,12 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h2>Speech Recognition1 Demo </h2>
+<h2>Speech Recognition Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
 	Say : <br>
-	<i>"Select Europe"  <br>
+	<i>"Select Region Europe"  <br> "Select Region All" <br>
 		"start over"<br> "Select year 2009 (two thousand and nine)"</i> </p>
 	
 <br>
@@ -39,13 +39,13 @@ if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
   	//'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
-	'Select Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
-	'Select The Americas': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting The Americas', "UK English Male"); },
-	'Select Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Asia', "UK English Male"); },
-	'Select Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
-	'Select Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
-	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
-	'Select Region All': function() { clearFilters; responsiveVoice.speak('selecting All Regions', "UK English Male"); },
+	'Select Region Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
+	'Select Region The Americas': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting The Americas', "UK English Male"); },
+	'Select Region Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Asia', "UK English Male"); },
+	'Select Region Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
+	'Select Region Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
+	'Select Region Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
+	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	  'Select year *tag' : filterYearValue 
  };
