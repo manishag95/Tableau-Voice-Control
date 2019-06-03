@@ -21,7 +21,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h1>Speech Recognition Demo </h1>
+<h2>Speech Recognition1 Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
@@ -45,7 +45,7 @@ if (annyang) {
 	'Select Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
 	'Select Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
 	'Select Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
-	'Select Region All': function() { filterSingleValue('All'); responsiveVoice.speak('selecting All regions', "UK English Male"); },
+	'Select Region All': function() { clearFilters; responsiveVoice.speak('selecting All Regions', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	  'Select year *tag' : filterYearValue 
  };
@@ -107,10 +107,9 @@ function filterYearValue(v_year) {
 	responsiveVoice.speak(v_year, "UK English Male");
 } 
 
-//	function selectVader()
-//	{
-//	activeSheet.getWorksheets()[1].selectMarksAsync('Character', 'DARTH VADER', 'REPLACE'); 
-//	}
+function clearFilters() {
+  activeSheet.clearFilterAsync("Region");
+}    
 	
 //Start Viz Over
 function startover()
