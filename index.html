@@ -21,13 +21,14 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h2>Speech Recognition1 Demo </h2>
+<h2>Speech Recognition Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
 	Say : <br>
-	<i>"Select Region Europe"  <br> "Add Region Africe" <br> "Select Region All" <br>
-		"start over"<br> "Select year 2009 (two thousand and nine)"</i> </p>
+	<i>"Select Region Europe"  <br> "Add Region Africa" <br> "Select Region All" <br> 
+		"Select year 2009 (two thousand and nine)" <br> "Add year 2008" <br>
+		"start over"</i> </p>
 	
 <br>
 <br>
@@ -54,7 +55,8 @@ if (annyang) {
 	'Add Region Africa': function() { addValuesToFilter('Africa'); responsiveVoice.speak('Adding Africa', "UK English Male"); },
 	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
-	  'Select year *tag' : filterYearValue 
+	  'Select year *tag' : filterYearValue ,
+	  'Add year *tag' : AddYearValue 
  };
 
 	document.getElementById("myBtn").addEventListener("click", function() {
@@ -111,6 +113,15 @@ function filterYearValue(v_year) {
     	v_year,
     	tableau.FilterUpdateType.REPLACE);
 	responsiveVoice.speak('selecting year', "UK English Male");
+	responsiveVoice.speak(v_year, "UK English Male");
+} 
+function addYearValue(v_year) {
+	//alert('year='+v_year);
+	activeSheet.applyFilterAsync(
+    	"YEAR(Date (year))",
+    	v_year,
+    	tableau.FilterUpdateType.ADD);
+	responsiveVoice.speak('Adding year', "UK English Male");
 	responsiveVoice.speak(v_year, "UK English Male");
 } 
 
