@@ -21,12 +21,12 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h2>Speech Recognition Demo </h2>
+<h2>Speech Recognition1 Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
 	Say : <br>
-	<i>"Select Region Europe"  <br> "Select Region All" <br>
+	<i>"Select Region Europe"  <br> "Add Region Africe" <br> "Select Region All" <br>
 		"start over"<br> "Select year 2009 (two thousand and nine)"</i> </p>
 	
 <br>
@@ -45,6 +45,13 @@ if (annyang) {
 	'Select Region Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
 	'Select Region Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
 	'Select Region Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
+	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
+	'Add Region Europe': function() { addValuesToFilter('Europe'); responsiveVoice.speak('Adding Europe', "UK English Male"); },
+	'Add Region The Americas': function() { addValuesToFilter('The Americas'); responsiveVoice.speak('Adding The Americas', "UK English Male"); },
+	'Add Region Asia': function() { addValuesToFilter('Asia'); responsiveVoice.speak('Adding Asia', "UK English Male"); },
+	'Add Region Oceana': function() { addValuesToFilter('Oceana'); responsiveVoice.speak('Adding Oceana', "UK English Male"); },
+	'Add Region Middle East': function() { addValuesToFilter('Middle East'); responsiveVoice.speak('Adding Middle East', "UK English Male"); },
+	'Add Region Africa': function() { addValuesToFilter('Africa'); responsiveVoice.speak('Adding Africa', "UK English Male"); },
 	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	  'Select year *tag' : filterYearValue 
@@ -109,6 +116,13 @@ function filterYearValue(v_year) {
 
 function clearFilters() {
   activeSheet.clearFilterAsync("Region");
+}    
+
+function addValuesToFilter(region) {
+  activeSheet.applyFilterAsync(
+    "Region",
+    region,
+    tableau.FilterUpdateType.ADD);
 }    
 	
 //Start Viz Over
