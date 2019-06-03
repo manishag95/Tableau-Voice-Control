@@ -21,7 +21,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h2>Speech Recognition1 Demo </h2>
+<h2>Speech Recognition Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
@@ -115,14 +115,14 @@ function filterYearValue(v_year) {
 	responsiveVoice.speak('selecting year', "UK English Male");
 	responsiveVoice.speak(v_year, "UK English Male");
 } 
-function addYearValue(v_year) {
+function addYearValue(vyear) {
 	//alert('year='+v_year);
 	activeSheet.applyFilterAsync(
     	"YEAR(Date (year))",
-    	v_year,
+    	vyear,
     	tableau.FilterUpdateType.ADD);
 	responsiveVoice.speak('Adding year', "UK English Male");
-	responsiveVoice.speak(v_year, "UK English Male");
+	responsiveVoice.speak(vyear, "UK English Male");
 } 
 
 function clearFilters() {
