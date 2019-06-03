@@ -21,7 +21,7 @@
 
 <body onload=initializeViz();>
 	<img src="genpact logo.png" style="float:right">
-<h2>Speech Recognition Demo </h2>
+<h2>Speech Recognition1 Demo </h2>
 	
 	<p><button type="button"; id="myBtn";>Enable voice!</button></p>
 <p>
@@ -56,7 +56,7 @@ if (annyang) {
 	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	  'Select year *tag' : filterYearValue ,
-	  'Add year *tag' : AddYearValue 
+	  'Add year *tag' : addYearValue 
  };
 
 	document.getElementById("myBtn").addEventListener("click", function() {
