@@ -17,14 +17,14 @@
 </head>	
 
 <body onload=initializeViz();>
-	<center><span style="font-size: 150%;"><b>Speech Recognition Demo</b></span></center>
+	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo</b></span></center>
 	<img src="genpact logo.png" style="float:right">
 	
-<p style="float:left;display:inline">
-	<button type="button"; id="myBtn"; class="button">Enable voice!</button> <span style="font-size: 70%;">(use with chrome browser)</span>
+<p style="float:left; display:inline;">
+	<button type="button"; id="myBtn"; class="button">Enable voice!</button> <br> <span style="font-size: 70%;">(use with chrome browser)</span>
 	<br> Say : <br>
 	<i>"Select Region Europe"  <br> "Add Region Africa" <br> "Select Region All" <br> 
-		"Select year 2009 <br> (two thousand and nine)" <br> "Select Map View" <br> "Select Bar Chart View" <br> "Export PDF" <br> "start over"</i> </p>
+		"Select year 2009 <br> (two thousand and nine)" <br> "Show Map View" <br> "Show Bar Chart View" <br> "Export PDF" <br> "start over"</i> </p>
 	
 
 
@@ -49,8 +49,8 @@ if (annyang) {
 	'Add Region Middle East': function() { addValuesToFilter('Middle East'); responsiveVoice.speak('Adding Middle East', "UK English Male"); },
 	'Add Region Africa': function() { addValuesToFilter('Africa'); responsiveVoice.speak('Adding Africa', "UK English Male"); },
 	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
-	'Select Map View': function() { switchToMapTab();  responsiveVoice.speak('Selecting Map View'); },  
-	'Select Bar Chart View': function() { switchToBarChart();  responsiveVoice.speak('Selecting Bar Chart View'); },  
+	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
+	'Show Bar Chart View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar Chart View'); },  
 	'Export PDF': function() { exportPDF();  responsiveVoice.speak('Exporting PDF'); },  
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	'Select year *tag' : filterYearValue 
@@ -124,11 +124,11 @@ function exportPDF() {
 }   
 
 function clearFilters() {
-  activeSheet.clearFilterAsync("Region");
+  workbook.getActiveSheet().clearFilterAsync("Region");
 }    
 
 function addValuesToFilter(region) {
-  activeSheet.applyFilterAsync(
+  workbook.getActiveSheet().applyFilterAsync(
     "Region",
     region,
     tableau.FilterUpdateType.ADD);
