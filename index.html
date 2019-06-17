@@ -22,9 +22,9 @@
 	
 <p style="float:left;display:inline">
 	<button type="button"; id="myBtn"; class="button">Enable voice!</button> <span style="font-size: 70%;">(use with chrome browser)</span>
-	Say : <br>
+	<br> Say : <br>
 	<i>"Select Region Europe"  <br> "Add Region Africa" <br> "Select Region All" <br> 
-		"Select year 2009 (two thousand and nine)" <br> "Select Map View" <br> "Select Bar Chart View" <br> "Export PDF" <br> "start over"</i> </p>
+		"Select year 2009 <br> (two thousand and nine)" <br> "Select Map View" <br> "Select Bar Chart View" <br> "Export PDF" <br> "start over"</i> </p>
 	
 
 
@@ -63,9 +63,6 @@ if (annyang) {
   
   // Start listening.
   annyang.start();
-	
-
-		
 });
 
 }
@@ -97,7 +94,7 @@ var options = {
 //Make Character selection
 function filterSingleValue(region) {
 	//alert(region);
-	activeSheet.applyFilterAsync(
+	workbook.getActiveSheet().applyFilterAsync(
     	"Region",
     	region,
     	tableau.FilterUpdateType.REPLACE);
