@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo</b></span></center>
+	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo1</b></span></center>
 	<img src="genpact logo.png" style="float:right">
 	
 <p style="float:left; display:inline;">
@@ -28,18 +28,19 @@
 	
 <br>
 <center><div id='tableauViz'></div></center>
-
-<script> 
-if (annyang) {
-  // These are the voice commands in quotes followed by the function
-  var commands = {
-  	//'Select Darth Vader': function() { selectVader(); responsiveVoice.speak('selecting Darth Vader', "UK English Male"); },
+<!--
 	'Select Region Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
 	'Select Region Americas': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting The Americas', "UK English Male"); },
 	'Select Region Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Asia', "UK English Male"); },
 	'Select Region Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
 	'Select Region Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
 	'Select Region Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
+-->
+<script> 
+if (annyang) {
+  // These are the voice commands in quotes followed by the function
+  var commands = {
+	'Select Region *tag' : filterSingleValue,
 	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
 	'Add Region Europe': function() { addValuesToFilter('Europe'); responsiveVoice.speak('Adding Europe', "UK English Male"); },
 	'Add Region Americas': function() { addValuesToFilter('The Americas'); responsiveVoice.speak('Adding The Americas', "UK English Male"); },
