@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo1</b></span></center>
+	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo</b></span></center>
 	<img src="genpact logo.png" style="float:right">
 	
 <p style="float:left; display:inline;">
@@ -94,15 +94,18 @@ var options = {
 //Make Character selection
 function filterSingleValue(region) {
 	alert(region);
-	if (region = 'All') {
+	if (region == 'All') {
 		workbook.getActiveSheet().clearFilterAsync("Region");
+		responsiveVoice.speak('selecting Regions All', "UK English Male");
 	}
-	workbook.getActiveSheet().applyFilterAsync(
-    	"Region",
-    	region,
-    	tableau.FilterUpdateType.REPLACE);
-	responsiveVoice.speak('selecting Regions', "UK English Male");
-	responsiveVoice.speak(region, "UK English Male");
+	else {
+		workbook.getActiveSheet().applyFilterAsync(
+    		"Region",
+    		region,
+    		tableau.FilterUpdateType.REPLACE);
+		responsiveVoice.speak('selecting Regions', "UK English Male");
+		responsiveVoice.speak(region, "UK English Male");
+	}
 } 
 //Make Year selection
 function filterYearValue(v_year) {
