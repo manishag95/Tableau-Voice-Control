@@ -78,10 +78,10 @@ var options = {
 
 //Make Character selection
 function filterSingleValue(measureandvalue) {
-	alert(measureandvalue);
-	measure=substr(measureandvalue,1,measureandvalue.indexOf(' '));
+	alert(measurenvalue);
+	var measure=slice(measurenvalue,1,measurenvalue.indexOf(' '));
 	altert(measure);
-	value=substr(measureandvalue,measureandvalue.indexOf(' ')+1);
+	var value=slice(measurenvalue,measurenvalue.indexOf(' ')+1);
 	alert(value);
 	if (region == 'all') {
 		workbook.getActiveSheet().clearFilterAsync("Region");
