@@ -28,33 +28,18 @@
 	
 <br>
 <center><div id='tableauViz'></div></center>
-<!--
-	'Select Region Europe': function() { filterSingleValue('Europe'); responsiveVoice.speak('selecting Europe', "UK English Male"); },
-	'Select Region Americas': function() { filterSingleValue('The Americas'); responsiveVoice.speak('selecting The Americas', "UK English Male"); },
-	'Select Region Asia': function() { filterSingleValue('Asia'); responsiveVoice.speak('selecting Asia', "UK English Male"); },
-	'Select Region Oceana': function() { filterSingleValue('Oceana'); responsiveVoice.speak('selecting Oceana', "UK English Male"); },
-	'Select Region Middle East': function() { filterSingleValue('Middle East'); responsiveVoice.speak('selecting Middle East', "UK English Male"); },
-	'Select Region Africa': function() { filterSingleValue('Africa'); responsiveVoice.speak('selecting Africa', "UK English Male"); },
--->
 <script> 
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
 	'Select Region *tag' : filterSingleValue,
-	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
-	'Add Region Europe': function() { addValuesToFilter('Europe'); responsiveVoice.speak('Adding Europe', "UK English Male"); },
-	'Add Region Americas': function() { addValuesToFilter('The Americas'); responsiveVoice.speak('Adding The Americas', "UK English Male"); },
-	'Add Region Asia': function() { addValuesToFilter('Asia'); responsiveVoice.speak('Adding Asia', "UK English Male"); },
-	'Add Region Oceana': function() { addValuesToFilter('Oceana'); responsiveVoice.speak('Adding Oceana', "UK English Male"); },
-	'Add Region Middle East': function() { addValuesToFilter('Middle East'); responsiveVoice.speak('Adding Middle East', "UK English Male"); },
-	'Add Region Africa': function() { addValuesToFilter('Africa'); responsiveVoice.speak('Adding Africa', "UK English Male"); },
-	'Select Region All': function() { clearFilters(); responsiveVoice.speak('selecting Regions All', "UK English Male"); },
+	'Add Region *tag': addValuesToFilter,
 	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
 	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
 	'Export PDF': function() { exportPDF();  responsiveVoice.speak('Exporting PDF'); },  
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	'Select year *tag' : filterYearValue 
-	   };
+	};
 
 	document.getElementById("myBtn").addEventListener("click", function() {
   responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
@@ -94,7 +79,7 @@ var options = {
 //Make Character selection
 function filterSingleValue(region) {
 	alert(region);
-	if (region == 'All') {
+	if (region == 'all') {
 		workbook.getActiveSheet().clearFilterAsync("Region");
 		responsiveVoice.speak('selecting Regions All', "UK English Male");
 	}
@@ -103,7 +88,7 @@ function filterSingleValue(region) {
     		"Region",
     		region,
     		tableau.FilterUpdateType.REPLACE);
-		responsiveVoice.speak('selecting Regions', "UK English Male");
+		responsiveVoice.speak('selecting Region', "UK English Male");
 		responsiveVoice.speak(region, "UK English Male");
 	}
 } 
@@ -111,7 +96,6 @@ function filterSingleValue(region) {
 function filterYearValue(v_year) {
 	alert('year='+v_year);
 	//activeSheet.applyFilterAsync(
-	workbook.getActiveSheet().clearFilterAsync("YEAR(Date (year))");
 	workbook.getActiveSheet().applyFilterAsync(
     	"YEAR(Date (year))",
     	v_year,
@@ -137,18 +121,21 @@ function clearFilters() {
 }    
 
 function addValuesToFilter(region) {
-  workbook.getActiveSheet().applyFilterAsync(
-    "Region",
-    region,
-    tableau.FilterUpdateType.ADD);
+  	workbook.getActiveSheet().applyFilterAsync(
+    		"Region",
+		region,
+		tableau.FilterUpdateType.ADD);
+	responsiveVoice.speak('Adding', "UK English Male");
+	responsiveVoice.speak(region, "UK English Male");
+
 }    
 	
 //Start Viz Over
 function startover()
-	{
+{
 	switchToBarChart();
 	viz.revertAllAsync();
-	}
+}
 
 </script>
 
