@@ -93,16 +93,22 @@ var options = {
 
 //Make Character selection
 function filterSingleValue(region) {
-	//alert(region);
+	alert(region);
+	if (region = 'All') {
+		workbook.getActiveSheet().clearFilterAsync("Region");
+	}
 	workbook.getActiveSheet().applyFilterAsync(
     	"Region",
     	region,
     	tableau.FilterUpdateType.REPLACE);
+	responsiveVoice.speak('selecting Regions', "UK English Male");
+	responsiveVoice.speak(region, "UK English Male");
 } 
 //Make Year selection
 function filterYearValue(v_year) {
 	alert('year='+v_year);
 	//activeSheet.applyFilterAsync(
+	workbook.getActiveSheet().clearFilterAsync("YEAR(Date (year))");
 	workbook.getActiveSheet().applyFilterAsync(
     	"YEAR(Date (year))",
     	v_year,
