@@ -81,9 +81,9 @@ function filterSingleValue(measurenvalue) {
 	alert(measurenvalue);
 	var pos=measurenvalue.indexOf(' ');
 	alert(pos);
-	var measure=slice(measurenvalue,1,pos);
+	var measure=measurenvalue.slice(1,pos);
 	alert(measure);
-	var value=slice(measurenvalue,measurenvalue.indexOf(' ')+1);
+	var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	alert(value);
 	if (value == 'all') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
