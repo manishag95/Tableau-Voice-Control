@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo</b></span></center>
+	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo1</b></span></center>
 	<img src="genpact logo.png" style="float:right">
 	
 <p style="float:left; display:inline;">
@@ -32,13 +32,13 @@
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
-	'Select Region *tag' : filterSingleValue,
+	'Select *tag' : filterSingleValue,
 	'Add Region *tag': addValuesToFilter,
 	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
 	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
 	'Export PDF': function() { exportPDF();  responsiveVoice.speak('Exporting PDF'); },  
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
-	'Select year *tag' : filterYearValue 
+	//'Select year *tag' : filterYearValue 
 	};
 
 	document.getElementById("myBtn").addEventListener("click", function() {
@@ -77,8 +77,8 @@ var options = {
 }
 
 //Make Character selection
-function filterSingleValue(region) {
-	alert(region);
+function filterSingleValue(measure,value) {
+	alert(measure);alert(value);
 	if (region == 'all') {
 		workbook.getActiveSheet().clearFilterAsync("Region");
 		responsiveVoice.speak('selecting Regions All', "UK English Male");
