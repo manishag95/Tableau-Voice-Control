@@ -77,8 +77,12 @@ var options = {
 }
 
 //Make Character selection
-function filterSingleValue(measure,value) {
-	alert(measure);alert(value);
+function filterSingleValue(measureandvalue) {
+	alert(measureandvalue);
+	measure=substr(measureandvalue,1,measureandvalue.indexOf(' '));
+	altert(measure);
+	value=substr(measureandvalue,measureandvalue.indexOf(' ')+1);
+	alert(value);
 	if (region == 'all') {
 		workbook.getActiveSheet().clearFilterAsync("Region");
 		responsiveVoice.speak('selecting Regions All', "UK English Male");
