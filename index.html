@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Speech Recognition</title>
+	<title>Speech Recognition1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,7 @@ function filterSingleValue(measurenvalue) {
 	alert(pos);
 	var measure=measurenvalue.slice(0,pos);
 	measure.trim();
-	measure="Region";
+	measure=measure.charAt(0).toUpperCase() + measure.slice(1);
 	alert(measure);
 	var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	value.trim();
