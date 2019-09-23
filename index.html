@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Speech Recognition</title>
+	<title>Speech Recognition1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
 </head>	
 
 <body onload=initializeViz();>
-	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo1</b></span></center>
+	<center><span style="font-size: 150%; display:inline;"><b>Speech Recognition Demo</b></span></center>
 	<img src="genpact logo.png" style="float:right">
 	
 <p style="float:left; display:inline;">
@@ -81,7 +81,7 @@ function filterSingleValue(measurenvalue) {
 	alert(measurenvalue);
 	var pos=measurenvalue.indexOf(' ');
 	alert(pos);
-	var measure=measurenvalue.slice(1,pos);
+	var measure=measurenvalue.slice(0,pos);
 	alert(measure);
 	var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	alert(value);
