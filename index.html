@@ -84,10 +84,11 @@ function filterSingleValue(measurenvalue) {
 	alert(pos);
 	var measure=measurenvalue.slice(0,pos);
 	measure.trim();
-	measure=measure.charAt(0).toUpperCase() + measure.slice(1);
+	 measure=measure.charAt(0).toUpperCase() + measure.slice(1);
 	alert(measure);
 	var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	value.trim();
+	value=value.charAt(0).toUpperCase() + value.slice(1);
 	alert(value);
 	if (value == 'all') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
