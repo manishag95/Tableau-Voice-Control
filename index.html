@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control</title>
+	<title>Tableau Voice Control1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +92,7 @@ function filterSingleValue(measure,value) {
 	//var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	value.trim();
 	value=titleCase(value);
-	alert(initCapValue);
+	alert(value);
 	if (value == 'all') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
 		responsiveVoice.speak('selecting Regions All', "UK English Male");
@@ -159,19 +159,12 @@ function startover()
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 } 
-String.prototype.initCap = function () {
-    alert('in initCap');
-    var new_str = this.split(' '),
-        i,
-        arr = [];
-    for (i = 0; i < new_str.length; i++) {
-        arr.push(initCap(new_str[i]).capitalize());
-    }
-    alert('After loop');
-    alert(arr.join(' '));
-    return arr.join(' ');
+function titleCase(str) {
+  alert ('in titleCase');
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
 }
-
 </script>
 
 </body>
