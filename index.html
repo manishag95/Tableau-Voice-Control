@@ -91,7 +91,7 @@ function filterSingleValue(measure,value) {
 	alert(measure);
 	//var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	value.trim();
-	value.initCap();
+	value=titleCase(value);
 	alert(initCapValue);
 	if (value == 'all') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
@@ -170,6 +170,13 @@ String.prototype.initCap = function () {
     alert(arr.join(' '));
     return arr.join(' ');
 }	
+function titleCase(str) {
+  str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  return str.join(' ');
+}
 
 </script>
 
