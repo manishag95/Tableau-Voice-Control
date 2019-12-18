@@ -32,7 +32,7 @@
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
-	'Select :vYear :theValue' : filterSingleValue(vYear,theValue),
+	'Select :vYear :theValue' : filterSingleValue,
 	'Add Region *tag': addValuesToFilter,
 	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
 	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
