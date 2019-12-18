@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control</title>
+	<title>Tableau Voice Control1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +62,6 @@ function initializeViz(){
 var placeholderDiv = document.getElementById("tableauViz");
 
 //var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
-//var url = "https://public.tableau.com/profile/danielv#!/vizhome/WorldIndicators_292/GDPpercapita";
 //var url = "https://public.tableau.com/views/Starwars/StarWords";
 //var url = "https://public.tableau.com/views/RegionalSampleWorkbook/College";
 //var url = "https://public.tableau.com/profile/manish.agarwal7810#!/vizhome/RegionalSampleWorkbook_15766585181680/College";
@@ -83,7 +82,7 @@ var options = {
 
 //Make Character selection
 function filterSingleValue(measure,value) {
-	alert(measure);alert(value);
+	//alert(measure);alert(value);
 	//var pos=measurenvalue.indexOf(' ');
 	//alert(pos);
 	//var measure=measurenvalue.slice(0,pos);
@@ -94,9 +93,9 @@ function filterSingleValue(measure,value) {
 	value.trim();
 	value=titleCase(value);
 	alert(value);
-	if (value == 'all') {
+	if (value == 'All') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
-		responsiveVoice.speak('selecting Regions All', "UK English Male");
+		responsiveVoice.speak('selecting'+measure+' All', "UK English Male");
 	}
 	else {
 		workbook.getActiveSheet().applyFilterAsync(
