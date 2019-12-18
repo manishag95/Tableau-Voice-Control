@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control</title>
+	<title>Tableau Voice Control1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,9 +32,9 @@
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
-	'Select :vYear *theValue' : filterSingleValue,
+	'Select :measure *theValue' : filterSingleValue,
 	'Add Region *tag': addValuesToFilter,
-	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
+	'Show View *tag': switchToTab,  
 	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
 	'Export PDF': function() { exportPDF();  responsiveVoice.speak('Exporting PDF'); },  
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
@@ -70,7 +70,7 @@ var url = "https://public.tableau.com/views/RegionalSampleWorkbook_1576658518168
 var options = {
    width: "1004",   
    height: "869",
-   hideTabs: true,
+   hideTabs: false,
    hideToolbar: true,
   onFirstInteractive: function () {
   workbook = viz.getWorkbook();
@@ -118,8 +118,8 @@ function filterYearValue(v_year) {
 	responsiveVoice.speak(v_year, "UK English Male");
 } 
 
-function switchToMapTab() {
-  workbook.activateSheetAsync("GDP per capita map");
+function switchToTab(vTab) {
+  workbook.activateSheetAsync(vTab);
 }  
 
 function switchToBarChart() {
@@ -147,7 +147,7 @@ function addValuesToFilter(region) {
 //Start Viz Over
 function startover()
 {
-	switchToBarChart();
+	//switchToBarChart();
 	viz.revertAllAsync();
 }
 
