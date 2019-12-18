@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control</title>
+	<title>Tableau Voice Control1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +90,8 @@ function filterSingleValue(measure,value) {
 	measure=measure.charAt(0).toUpperCase() + measure.slice(1);
 	alert(measure);
 	//var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
-	//value.trim();
-	value=value.initCap();
+	value.trim();
+	value.initCap();
 	alert(value);
 	if (value == 'all') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
@@ -160,6 +160,7 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 } 
 String.prototype.initCap = function () {
+	alert('in initCap');
     var new_str = this.split(' '),
         i,
         arr = [];
