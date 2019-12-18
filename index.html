@@ -32,8 +32,8 @@
 if (annyang) {
   // These are the voice commands in quotes followed by the function
   var commands = {
-	'Select Acedemic Year *theValue' : filterSingleValue('Acedemic Year',theValue),
-	'Select Region *theValue': filterSingleValue('Region',theValue),
+	'Select *Year *theValue' : filterSingleValue(Year,theValue),
+	'Select *Region *theValue': filterSingleValue(Region,theValue),
 	'Add Region *tag': addValuesToFilter,
 	'Show Map View': function() { switchToMapTab();  responsiveVoice.speak('Showing Map View'); },  
 	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
