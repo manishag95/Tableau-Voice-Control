@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control1</title>
+	<title>Tableau Voice Control</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 	<button type="button"; id="myBtn"; class="button">Enable voice!</button> <span style="font-size: 70%;">(use with chrome browser)</span>
 	<br> Say : <br>
 	<i>"Select Region Europe"  <br> "Add Region Africa" <br> "Select Region All" <br> 
-		"Select year 2009 <br> (two thousand and nine)" <br> "Show Map View" <br> "Export PDF" <br> "start over"</i> </p>
+		"Select year 2009 <br> (two thousand and nine)" <br> "Show View Map" <br> "Export PDF" <br> "start over"</i> </p>
 	
 <br>
 <center><div id='tableauViz'></div></center>
@@ -35,7 +35,6 @@ if (annyang) {
 	'Select :measure *theValue' : filterSingleValue,
 	'Add Region *tag': addValuesToFilter,
 	'Show View *tag': switchToTab,  
-	'Show Bar View': function() { switchToBarChart();  responsiveVoice.speak('Showing Bar View'); },  
 	'Export PDF': function() { exportPDF();  responsiveVoice.speak('Exporting PDF'); },  
 	'start over': function() { startover(); responsiveVoice.speak('starting over'); },
 	//'Select year *tag' : filterYearValue 
@@ -82,17 +81,14 @@ var options = {
 
 //Make Character selection
 function filterSingleValue(measure,value) {
-	//alert(measure);alert(value);
 	//var pos=measurenvalue.indexOf(' ');
 	//alert(pos);
 	//var measure=measurenvalue.slice(0,pos);
 	measure.trim();
 	measure=measure.charAt(0).toUpperCase() + measure.slice(1);
-	alert(measure);
-	//var value=measurenvalue.slice(measurenvalue.indexOf(' ')+1);
 	value.trim();
 	value=titleCase(value);
-	alert(value);
+	alert(measure+' '+value);
 	if (value == 'All') {
 		workbook.getActiveSheet().clearFilterAsync(measure);
 		responsiveVoice.speak('selecting'+measure+' All', "UK English Male");
@@ -103,32 +99,30 @@ function filterSingleValue(measure,value) {
     		value,
     		tableau.FilterUpdateType.REPLACE);
 		responsiveVoice.speak('selecting '+measure+' '+value, "UK English Male");
-		//responsiveVoice.speak(region, "UK English Male");
 	}
 } 
-//Make Year selection
-function filterYearValue(v_year) {
-	alert('year='+v_year);
-	//activeSheet.applyFilterAsync(
-	workbook.getActiveSheet().applyFilterAsync(
-    	"YEAR(Date (year))",
-    	v_year,
-    	tableau.FilterUpdateType.REPLACE);
-	responsiveVoice.speak('selecting year', "UK English Male");
-	responsiveVoice.speak(v_year, "UK English Male");
-} 
 
-function switchToTab(vTab) {
+function addValuesToFilter(measure,value) {
+	measure.trim();
+	measure=measure.charAt(0).toUpperCase() + measure.slice(1);
+	value.trim();
+	value=titleCase(value);
+	alert(measure+' '+value);
+	workbook.getActiveSheet().applyFilterAsync(
+    		measure,
+    		value,
+		tableau.FilterUpdateType.ADD);
+	responsiveVoice.speak('Adding '+measure+' '+value, "UK English Male");
+
+}    
+
+	function switchToTab(vTab) {
   vTab.trim();
   vTab=vTab.charAt(0).toUpperCase() + vTab.slice(1);
   alert(vTab);
   workbook.activateSheetAsync(vTab);
   responsiveVoice.speak('Showing View', "UK English Male");
   responsiveVoice.speak(vTab, "UK English Male");
-}  
-
-function switchToBarChart() {
-  workbook.activateSheetAsync("GDP per capita");
 }  
 
 function exportPDF() {
@@ -139,16 +133,6 @@ function clearFilters() {
   workbook.getActiveSheet().clearFilterAsync("Region");
 }    
 
-function addValuesToFilter(region) {
-  	workbook.getActiveSheet().applyFilterAsync(
-    		"Region",
-		region,
-		tableau.FilterUpdateType.ADD);
-	responsiveVoice.speak('Adding', "UK English Male");
-	responsiveVoice.speak(region, "UK English Male");
-
-}    
-	
 //Start Viz Over
 function startover()
 {
@@ -156,11 +140,8 @@ function startover()
 	viz.revertAllAsync();
 }
 
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-} 
 function titleCase(str) {
-  alert ('in titleCase');
+  //alert ('in titleCase');
   return str.toLowerCase().split(' ').map(function(word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
