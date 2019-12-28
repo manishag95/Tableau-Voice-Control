@@ -17,10 +17,9 @@
 </head>	
 
 <body onload=initializeViz();>
-<!-- <body> -->
 	<center><span style="font-size: 150%; display:inline;"><b>Tableau Voice Control</b></span><br>
 	<form>
-  		URL: <input type="text" id="tabURL" value="https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link">
+  		URL: <input type="text" id="tabURL" size="100" value="https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link">
 	  	<input type="button" value="Submit" onclick=initializeViz();>
 	</form>
 	</center>
@@ -77,7 +76,6 @@ var placeholderDiv = document.getElementById("tableauViz");
 //var url = "https://public.tableau.com/views/RegionalSampleWorkbook_15766585181680/College?:display_count=y&:origin=viz_share_link";
 //var url = "https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link"
 var url = document.getElementById("tabURL").value
-alert(url);
 var options = {
    width: "1004",   
    height: "869",
@@ -165,5 +163,10 @@ function titleCase(str) {
 }
 </script>
 
+<p style="float:left; display:inline;">
+<br> Sample Tableau URLs : <br>
+<br>https://public.tableau.com/views/RegionalSampleWorkbook_15766585181680/College?:display_count=y&:origin=viz_share_link<br>
+<br>https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link<br>
+</p>
 </body>
 </html>		
