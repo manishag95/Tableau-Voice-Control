@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control1</title>
+	<title>Tableau Voice Control</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +65,10 @@ var viz, workbook, activeSheet, Worksheet, worksheet;
 function initializeViz(){
 
 alert('In initializeViz');
+if (viz) { 
+	viz.dispose();
+}
+	
 var placeholderDiv = document.getElementById("tableauViz");
 
 //var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
@@ -84,6 +88,11 @@ var options = {
 }
 };
   viz = new tableauSoftware.Viz(placeholderDiv, url, options);
+}
+	
+function refreshView(){ 
+
+	viz.refreshDataAsync(); 
 }
 
 //Make Character selection
