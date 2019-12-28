@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Tableau Voice Control</title>
+	<title>Tableau Voice Control1</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +16,12 @@
 
 </head>	
 
-<body onload=initializeViz();>
+<body onload=main();>
 	<center><span style="font-size: 150%; display:inline;"><b>Tableau Voice Control</b></span><br><br>
-	<form onsubmit="initializeViz();return false">
+<!--	<form onsubmit="initializeViz();return false"> -->
   		URL: <input type="text" id="tabURL" size="100" value="https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link">
-	  	<input type="button" value="Submit" onclick=initializeViz();>
-	</form>
+	  	<input type="button" id="submitButton" value="Submit" onclick=initializeViz();>
+<!--	</form> -->
 	</center>
 	<img src="genpact logo.png" style="float:right">
 	
@@ -56,46 +56,46 @@ if (annyang) {
 
 }
 
+function main(){
+	document.getElementById("tabURL").addEventListener("keyup", function(event) {
+    		event.preventDefault();
+    		if (event.keyCode === 13) {
+        	document.getElementById("submitButton").click();
+    		}
+	});
+	initializeViz()
+}
+
 var viz, workbook, activeSheet, Worksheet, worksheet;
 
-function preventSubmit(evt) { 
-  	evt.preventDefault();
-	initializeViz();
-};
-	
 function initializeViz(){
 
-if (viz) { 
-	viz.dispose();
-}
-	
-var placeholderDiv = document.getElementById("tableauViz");
+	if (viz) { 
+		viz.dispose();
+	}
 
-//var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
-//var url = "https://public.tableau.com/views/Starwars/StarWords";
-//var url = "https://public.tableau.com/views/RegionalSampleWorkbook/College";
-//var url = "https://public.tableau.com/profile/manish.agarwal7810#!/vizhome/RegionalSampleWorkbook_15766585181680/College";
-//var url = "https://public.tableau.com/views/RegionalSampleWorkbook_15766585181680/College?:display_count=y&:origin=viz_share_link";
-//var url = "https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link"
-var url = document.getElementById("tabURL").value
-var options = {
-   width: "1004",   
-   height: "869",
-   hideTabs: false,
-   hideToolbar: true,
-  onFirstInteractive: function () {
-  workbook = viz.getWorkbook();
-  activeSheet = workbook.getActiveSheet();
-}
+	var placeholderDiv = document.getElementById("tableauViz");
+
+	//var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
+	//var url = "https://public.tableau.com/views/Starwars/StarWords";
+	//var url = "https://public.tableau.com/views/RegionalSampleWorkbook/College";
+	//var url = "https://public.tableau.com/profile/manish.agarwal7810#!/vizhome/RegionalSampleWorkbook_15766585181680/College";
+	//var url = "https://public.tableau.com/views/RegionalSampleWorkbook_15766585181680/College?:display_count=y&:origin=viz_share_link";
+	//var url = "https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link"
+	var url = document.getElementById("tabURL").value
+	var options = {
+	   width: "1004",   
+	   height: "869",
+	   hideTabs: false,
+	   hideToolbar: true,
+	  onFirstInteractive: function () {
+	  workbook = viz.getWorkbook();
+	  activeSheet = workbook.getActiveSheet();
+	}
 };
   viz = new tableauSoftware.Viz(placeholderDiv, url, options);
 }
 	
-function refreshView(){ 
-
-	viz.refreshDataAsync(); 
-}
-
 //Make Character selection
 function filterSingleValue(measure,value) {
 	//var pos=measurenvalue.indexOf(' ');
@@ -133,13 +133,13 @@ function addValuesToFilter(measure,value) {
 
 }    
 
-	function switchToTab(vTab) {
-  vTab.trim();
-  vTab=vTab.charAt(0).toUpperCase() + vTab.slice(1);
-  alert(vTab);
-  workbook.activateSheetAsync(vTab);
-  responsiveVoice.speak('Showing View', "UK English Male");
-  responsiveVoice.speak(vTab, "UK English Male");
+function switchToTab(vTab) {
+	vTab.trim();
+	vTab=vTab.charAt(0).toUpperCase() + vTab.slice(1);
+	alert(vTab);
+	workbook.activateSheetAsync(vTab);
+	responsiveVoice.speak('Showing View', "UK English Male");
+	responsiveVoice.speak(vTab, "UK English Male");
 }  
 
 function exportPDF() {
