@@ -18,7 +18,7 @@
 
 <body onload=initializeViz();>
 	<center><span style="font-size: 150%; display:inline;"><b>Tableau Voice Control</b></span><br><br>
-	<form onsubmit="initializeViz()">
+	<form onsubmit="preventSubmit(evt)">
   		URL: <input type="text" id="tabURL" size="100" value="https://public.tableau.com/views/WorldIndicators_15766890632510/GDPpercapita?:display_count=y&:origin=viz_share_link">
 	  	<input type="button" value="Submit" onclick=initializeViz();>
 	</form>
@@ -57,9 +57,11 @@ if (annyang) {
 }
 
 var viz, workbook, activeSheet, Worksheet, worksheet;
-//Tabitha says hello
-//responsiveVoice.speak('Hi. Welcome to Tableau. How may I help you?');
-//alert('1');
+
+function preventSubmit(evt) { 
+  	evt.preventDefault();
+	initializeViz();
+};
 	
 function initializeViz(){
 
